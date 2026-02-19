@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Vexor\Core\ORM\Migration;
+use Vexor\ORM\Migration;
 
 return new class extends Migration
 {

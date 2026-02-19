@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace App\Controllers\Api;
 
 use App\Services\AuthService;
-use Vexor\Core\Http\Controller;
-use Vexor\Core\Http\Request;
-use Vexor\Core\Http\Response;
-use Vexor\Core\Application;
-use Vexor\Core\Auth\AuthManager;
-use Vexor\Core\Exceptions\AuthException;
+use Vexor\Http\Controller;
+use Vexor\Http\Request;
+use Vexor\Http\Response;
+use Vexor\Application;
+use Vexor\Auth\AuthManager;
+use Vexor\Exceptions\AuthException;
 use Vexor\Core\Exceptions\ValidationException;
 
 class AuthController extends Controller

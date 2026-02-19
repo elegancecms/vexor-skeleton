@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Models\User;
-use Vexor\Core\Auth\AuthManager;
-use Vexor\Core\Security\SecurityManager;
-use Vexor\Core\Exceptions\AuthException;
-use Vexor\Core\Exceptions\ValidationException;
+use Vexor\Auth\AuthManager;
+use Vexor\Security\SecurityManager;
+use Vexor\Exceptions\AuthException;
+use Vexor\Exceptions\ValidationException;
 
 /**
  * AuthService

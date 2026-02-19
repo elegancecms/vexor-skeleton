@@ -6,12 +6,12 @@ namespace App\Controllers\Api;
 
 use App\Models\User;
 use App\Services\AuthService;
-use Vexor\Core\Http\Controller;
-use Vexor\Core\Http\Request;
-use Vexor\Core\Http\Response;
-use Vexor\Core\Application;
-use Vexor\Core\Exceptions\AuthException;
-use Vexor\Core\Exceptions\ValidationException;
+use Vexor\Http\Controller;
+use Vexor\Http\Request;
+use Vexor\Http\Response;
+use Vexor\Application;
+use Vexor\Exceptions\AuthException;
+use Vexor\Exceptions\ValidationException;
 
 class UserController extends Controller
 {

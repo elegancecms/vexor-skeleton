@@ -23,7 +23,7 @@ if (file_exists($envFile)) {
     }
 }
 
-$app     = new Vexor\Core\Application(__DIR__);
-$console = new Vexor\Core\Console\Console($app);
+$app     = new Vexor\Application(__DIR__);
+$console = new Vexor\Console\Console($app);
 
 exit($console->run($argv));

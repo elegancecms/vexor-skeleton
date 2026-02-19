@@ -1,9 +1,9 @@
 <?php
 
-use Vexor\Core\Http\Request;
-use Vexor\Core\Http\Response;
+use Vexor\Http\Request;
+use Vexor\Http\Response;
 
-/** @var \Vexor\Core\Router\Router $router */
+/** @var \Vexor\Router\Router $router */
 
 $router->prefix('/api')->group(function ($r) {
 

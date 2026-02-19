@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Vexor\Core\ORM\Seeder;
+use Vexor\ORM\Seeder;
 
 /**
  * UserSeeder — Varsayılan admin kullanıcısı oluşturur.
