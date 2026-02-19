@@ -5,31 +5,34 @@ use Vexor\Core\Http\Response;
 
 /** @var \Vexor\Core\Router\Router $router */
 
+// ── Ana Sayfa ─────────────────────────────────────────────────────────────────
+
 $router->get('/', function (Request $request): Response {
-    return Response::json([
-        'framework' => 'Vexor',
-        'version'   => '1.0.0',
-        'status'    => 'running',
-        'message'   => '⚡ Welcome to Vexor Framework',
-    ]);
+    return Response::json(['framework' => 'Vexor', 'version' => '1.0.0', 'status' => 'running']);
 });
 
-$router->get('/health', function (Request $request): Response {
-    return Response::json([
-        'status'    => 'healthy',
-        'timestamp' => date('Y-m-d H:i:s'),
-    ]);
-});
+// ── Auth (Guest) ──────────────────────────────────────────────────────────────
 
-$router->post('/login',    'App\Controllers\AuthController@login');
-$router->post('/logout',   'App\Controllers\AuthController@logout');
-$router->post('/register', 'App\Controllers\AuthController@register');
+$router->get('/login',            'App\Controllers\AuthController@loginForm');
+$router->post('/login',           'App\Controllers\AuthController@login');
+$router->get('/register',         'App\Controllers\AuthController@registerForm');
+$router->post('/register',        'App\Controllers\AuthController@register');
+$router->get('/forgot-password',  'App\Controllers\AuthController@forgotForm');
+$router->post('/forgot-password', 'App\Controllers\AuthController@forgot');
+$router->get('/reset-password',   'App\Controllers\AuthController@resetForm');
+$router->post('/reset-password',  'App\Controllers\AuthController@reset');
+$router->post('/logout',          'App\Controllers\AuthController@logout');
+
+// ── Auth (Protected) ──────────────────────────────────────────────────────────
 
 $router->middleware('Vexor\Core\Http\Middleware\AuthMiddleware')->group(function ($r) {
+
     $r->get('/dashboard', function (Request $request): Response {
-        return Response::json([
-            'message' => 'Welcome!',
-            'user'    => $request->getAttribute('user'),
-        ]);
+        $user = $request->getAttribute('user');
+        return Response::json(['message' => 'Hoş geldiniz!', 'user' => $user->toArray()]);
     });
+
+    $r->get('/profile', 'App\Controllers\ProfileController@show');
+    $r->put('/profile', 'App\Controllers\ProfileController@update');
+
 });
