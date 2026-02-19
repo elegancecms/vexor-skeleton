@@ -1,0 +1,41 @@
+{
+    "name": "vexor/vexor",
+    "description": "Vexor Framework Application Skeleton",
+    "type": "project",
+    "license": "MIT",
+    "keywords": ["framework", "vexor", "skeleton", "php"],
+    "require": {
+        "php": ">=8.2",
+        "vexor/framework": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php vexor key:generate"
+        ],
+        "test": "phpunit"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "allow-plugins": {}
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
